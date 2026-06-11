@@ -6,6 +6,11 @@ Primary goal of this fork: **Proper EZ Flash Omega Definitive Edition support** 
 
 ## What's Fixed in This Fork
 
+### GBA Enhanced Mode Default ON
+The "Identify as GBA" setting (`request_gba_mode`) now defaults to **ON**. This means GBC games that support GBA hardware detection (like **Shantae**, **Pokémon Pinball**) will automatically show their enhanced content — better colors, extra game modes, new transformations — without needing to toggle anything in the menu.
+
+Most GBC games don't check for GBA hardware at all, so this change is harmless for the vast majority of titles. The setting can still be toggled off in the menu for any game that has issues (Language Settings → Identify as GBA).
+
 ### EZ Flash Omega DE Config Persistence
 The original Jagoomba Color has a `using_flashcart()` function that checks whether SRAM save/load is safe by testing if the binary's `textstart` is in ROM address space (`0x08000000+`). When running as a plugin under SimpleDE/PogoShell, the binary is in EWRAM (`0x02000000+`), so this check fails and config read/write silently returns without doing anything. Settings like "Identify as GBA" would never persist across boots.
 
@@ -13,6 +18,9 @@ The original Jagoomba Color has a `using_flashcart()` function that checks wheth
 
 ### Font Data Restored
 The `font._lz77` file in the source tree was a different (wrong) version from what the original ezode binary was compiled with. The original uses a 2752-byte decompressed font; the source had a 3072-byte version. This caused garbled UI text on boot. Restored from the working original ezode binary.
+
+### Fixed IWRAM Overflow
+The font and palette data was placed in `.data` (loaded into IWRAM) alongside the emulator core. Combined they exceeded the GBA's 32K IWRAM limit by ~80 bytes, causing linker errors. Moved font data to `.rodata` so it stays in ROM.
 
 ### Updated Build System
 - `build-jagoomba2.sh` — complete build pipeline using system devkitARM toolchain (Linux)
@@ -55,9 +63,11 @@ To build a standalone `.gba` with GBC games baked in, use [Goomba Front](https:/
 
 ## Config Persistence on EZ Flash Omega DE
 
-The "Identify as GBA" setting is stored at a fixed SRAM offset (`0x0E0000F0`) using byte writes matching the Omega DE kernel's `WriteSram` pattern. The Omega DE kernel intercepts writes to `0x0E000000` and flushes them to the `.sav` file when the user returns to the kernel menu (via L+R menu, soft reset, or the boot-time save prompt).
+With `request_gba_mode` defaulting to **ON**, most users won't need to change this setting at all — Shantae GBA enhanced mode works immediately.
 
-**Important:** Powering off directly without soft-resetting or using the L+R save menu will lose any setting changes.
+If you do toggle the setting in the menu, the value is stored at a fixed SRAM offset (`0x0E0000F0`) using byte writes matching the Omega DE kernel's `WriteSram` pattern. The Omega DE kernel intercepts writes to `0x0E000000` and flushes them to the `.sav` file when the user returns to the kernel menu (via L+R menu, soft reset, or the boot-time save prompt).
+
+**Note:** Direct power-off without soft-resetting or using the L+R save menu will lose any uncommitted setting changes. This is a kernel limitation, not a Goomba bug.
 
 ## Thanks To
 - Dwedit for the Goomba Color emulator
