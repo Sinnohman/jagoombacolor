@@ -28,23 +28,41 @@
 	.global XGB_VRAM
 	.global GBC_EXRAM
  .endif
-	global_func update_doublespeed_ui
+
+	.global update_doublespeed_ui
+	.type update_doublespeed_ui, %function
 	
-	global_func emu_reset
-	global_func run
+
+	.global emu_reset
+	.type emu_reset, %function
+
+	.global run
+	.type run, %function
 	.global op_table
-	global_func default_scanlinehook
+
+	.global default_scanlinehook
+	.type default_scanlinehook, %function
 	.global cpustate
 	.global rommap
 	.global g_memmap_tbl
 	.global frametotal
 	.global sleeptime
 	.global novblankwait
-	global_func request_gba_mode
-	global_func request_gb_type
-	global_func line145_to_end
-	global_func checkIRQ
-	global_func _00
+
+	.global request_gba_mode
+	.type request_gba_mode, %function
+
+	.global request_gb_type
+	.type request_gb_type, %function
+
+	.global line145_to_end
+	.type line145_to_end, %function
+
+	.global checkIRQ
+	.type checkIRQ, %function
+
+	.global _00
+	.type _00, %function
 	.global gbc_mode
 	
 	.global g_hackflags
@@ -70,8 +88,12 @@
 	.endif
 
 #if SPEEDHACKS_NEW
-	global_func install_speedhack
-	global_func speedhack_reset
+
+	.global install_speedhack
+	.type install_speedhack, %function
+
+	.global speedhack_reset
+	.type speedhack_reset, %function
 	.global _speedhack_pc
 	.global _quickhackused
 	.global _quickhackcounter

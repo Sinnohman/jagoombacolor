@@ -925,7 +925,7 @@ int using_flashcart() {
 	}
 #endif
 
-	return (u32)textstart&0x8000000;
+	return 1; // Always return true for Omega DE / SimpleDE compatibility
 }
 
 void quickload() {
@@ -1404,60 +1404,31 @@ const configdata configtemplate={
 
 void writeconfig()
 {
-	if (sram_copy == NULL)
-	{
-		getsram();
-	}
-	configdata *cfg;
-	int i,j;
-
 	if(!using_flashcart())
 		return;
-	
-	compressed_save = sram_copy + 0xE000;
-	current_save_file = (stateheader*)compressed_save;
-	
-	i=findstate(0,CONFIGSAVE,(stateheader**)&cfg);
-	if(i<0) {//make new config
-		memcpy(compressed_save,&configtemplate,sizeof(configdata));
-		cfg=current_save_file;
-	}
-//	cfg->bordercolor=bcolor;					//store current border type
-	cfg->palettebank=palettebank;				//store current DMG palette
-	j = stime & 0x3;							//store current autosleep time
-//	j |= (gbadetect & 0x1)<<3;					//store current gbadetect setting
-	j |= (request_gb_type & 0x3)<<2;			//store current request_gb_type setting
-	j |= (autostate & 0x1)<<4;					//store current autostate setting
-	j |= (gammavalue & 0x7)<<5;					//store current gamma setting
-	cfg->misc = j;
-	cfg->sram_checksum=sram_owner;
-	if(i<0) {	//create new config
-		updatestates(0,0,CONFIGSAVE);
-	} else {		//config already exists, update sram directly (faster)
-		bytecopy((u8*)cfg-sram_copy+MEM_SRAM,(u8*)cfg,sizeof(configdata));
-	}
-	
-	compressed_save = NULL;
-	current_save_file = NULL;
+
+	// Store config at SRAM offset 0x00F0 using byte writes (same as kernel WriteSram).
+	// Format: 'G','B' marker, then request_gba_mode byte, then padding zeros.
+	// Match kernel's byte-at-a-time SRAM write pattern for proper interception.
+	vu8 *save = (vu8*)(MEM_SRAM + 0x00F0);
+	save[0] = 'G';
+	save[1] = 'B';
+	save[2] = request_gba_mode ? 1 : 0;
+	save[3] = 0;
+	save[4] = 0;
+	save[5] = 0;
+	save[6] = 0;
+	save[7] = 0;
 }
 
 void readconfig() {
-	int i;
-	configdata *cfg;
 	if(!using_flashcart())
 		return;
 
-	i=findstate(0,CONFIGSAVE,(stateheader**)&cfg);
-	if(i>=0) {
-//		bcolor=cfg->bordercolor;
-		palettebank=cfg->palettebank;
-		i = cfg->misc;
-		stime = i & 0x3;						//restore current autosleep time
-//		gbadetect = (i & 0x08)>>3;				//restore current gbadetect setting
-		request_gb_type = (i & 0x0C)>>2;		//restore current request_gb_type setting
-		autostate = (i & 0x10)>>4;				//restore current autostate setting
-		gammavalue = (i & 0xE0)>>5;				//restore current gamma setting
-		sram_owner=cfg->sram_checksum;
+	// Read config from SRAM offset 0x00F0 using byte reads
+	vu8 *save = (vu8*)(MEM_SRAM + 0x00F0);
+	if (save[0] == 'G' && save[1] == 'B') {  // marker present?
+		request_gba_mode = save[2] ? 1 : 0;
 	}
 }
 /*

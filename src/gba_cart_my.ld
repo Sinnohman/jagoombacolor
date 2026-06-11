@@ -289,6 +289,8 @@ SECTIONS
 		__eheap_start = ABSOLUTE(.);
  	} AT>ewram
 
+	fake_heap_end = __eheap_start + 0x10000;
+
 	/* new section: .vram1 */
 	__vram1_lma = __ewram_lma + SIZEOF(.ewram);
 

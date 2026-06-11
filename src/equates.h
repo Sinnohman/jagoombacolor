@@ -4,6 +4,7 @@
 //Must update cleanup_ewram if EWRAM equates are changed!
 
 
+# We override the specs file because the default crt0 always clears EWRAM, and we don't want this.
 	VERSION_IN_ROM = 1
 #ifndef _GBAMP_VERSION
 #define _GBAMP_VERSION 0
