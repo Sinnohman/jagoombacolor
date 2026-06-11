@@ -66,7 +66,7 @@ Linker script and memory map
  *(.plt)
                 0x08000218                        . = ALIGN (0x4)
 
-.text           0x08000218     0x9080
+.text           0x08000218     0x9418
  *(EXCLUDE_FILE(*.iwram*) .text)
  .text          0x08000218        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
  .text          0x08000218       0x64 /tmp/jagoombacolor/build/cache.o
@@ -192,7 +192,7 @@ Linker script and memory map
                 0x08002dd8                loadstate2
                 0x08002efc                quickload
                 0x08002f24                loadstatemenu
- .text          0x0800300c      0x9dc /tmp/jagoombacolor/build/ui.o
+ .text          0x0800300c      0xa14 /tmp/jagoombacolor/build/ui.o
                 0x0800300c                autoAset
                 0x0800305c                autoBset
                 0x080030ac                vblset
@@ -202,316 +202,323 @@ Linker script and memory map
                 0x080030f8                gbtype
                 0x0800310c                gbatype
                 0x0800311c                sgbpalnum
-                0x08003130                changeautoborder
-                0x08003140                brightset
-                0x0800316c                restart
-                0x0800317c                timermode
-                0x080031a0                changelcdhack
-                0x080031c4                sleepset
-                0x08003218                savestate
-                0x0800321c                loadstate
-                0x0800321e                strmerge_str
-                0x08003248                text1_str
-                0x08003280                print_1_func
-                0x08003290                text2_str
-                0x080032b8                print_2_func
-                0x080032c8                drawui2
-                0x080033ac                drawui3
-                0x0800341c                drawui4
-                0x08003478                text
-                0x080034ac                text2
-                0x080034cc                strmerge
-                0x080034e8                drawui1
-                0x080035d8                subui
-                0x08003678                ui2
-                0x08003686                ui3
-                0x080036a0                ui4
-                0x080036ae                drawclock
-                0x0800371c                ui
-                0x0800388c                fadetowhite
-                0x080038b6                exit_
-                0x080038ec                sleep_
-                0x08003918                draw_palette_list
-                0x08003978                chpalette
- .text          0x080039e8     0x510c /tmp/jagoombacolor/build/all.o
-                0x080044e0                update_doublespeed_ui
-                0x080045fc                emu_reset
-                0x080046d0                run
-                0x080046ec                speedhack_reset
-                0x08004768                install_speedhack
-                0x08004ed8                echo_R
-                0x08004ee8                echo_W
-                0x0800500c                memset32_
-                0x08005010                memcpy32_
-                0x08005128                loadcart_after_sgb_border
-                0x08005140                loadcart
-                0x0800541c                map0123_
-                0x08005448                mbc0init
-                0x0800545c                mbc1init
-                0x080054cc                mbc2init
-                0x080054f8                mbc3init
-                0x080055d0                mbc5init
-                0x080055f0                mbc7init
-                0x0800561c                huc1init
-                0x0800563c                huc3init
-                0x0800565c                mmm01init
-                0x0800565c                mbc4init
-                0x0800565c                mbc6init
-                0x080056e0                move_ui_asm
-                0x08005710                GFX_init_irq
-                0x08005748                GFX_init
-                0x080057e4                GFX_reset
-                0x08005980                resetlcdregs
-                0x080059a8                PaletteTxAll
-                0x080059ec                paletteinit
-                0x08005a44                transfer_palette
-                0x08005afc                debug_
-                0x08005b00                update_sgb_palette
-                0x08006460                FF42_R
-                0x08006468                FF43_R
-                0x08006470                FF44_W
-                0x08006474                FF47_R
-                0x0800647c                FF48_R
-                0x08006484                FF49_R
-                0x0800648c                FF4A_R
-                0x08006494                FF4B_R
-                0x0800649c                FF68_R
-                0x080064a4                FF69_R
-                0x080064b8                FF6A_R
-                0x080064c0                FF6B_R
-                0x080064d4                FF68_W
-                0x080064dc                FF6A_W
-                0x080064e4                update_lcdhack
-                0x0800656c                breakpoint
-                0x08006574                vbaprint
-                0x0800657c                LZ77UnCompVram
-                0x08006584                waitframe
-                0x08006594                CheckGBAVersion
-                0x080065cc                jump_r0
-                0x080065d0                doReset
-                0x08006624                VISOLY_START
-                0x080067e0                VISOLY_END
-                0x080067e0                suspend
-                0x0800681c                thumbcall_r1
-                0x08006820                gettime
-                0x08006930                IO_reset
-                0x08006b88                Sound_reset
-                0x08006bcc                _FF10W
-                0x08006bd8                _FF11W
-                0x08006be8                _FF12W
-                0x08006bf4                _FF13W
-                0x08006c04                _FF14W
-                0x08006c14                _FF16W
-                0x08006c24                _FF17W
-                0x08006c30                _FF18W
-                0x08006c40                _FF19W
-                0x08006c50                _FF1AW
-                0x08006c64                _FF1BW
-                0x08006c74                _FF1CW
-                0x08006c84                _FF1DW
-                0x08006c94                _FF1EW
-                0x08006ca4                _FF30W
-                0x08006cb4                _FF20W
-                0x08006cc0                _FF21W
-                0x08006ccc                _FF22W
-                0x08006cd8                _FF23W
-                0x08006ce4                _FF24W
-                0x08006cf0                _FF25W
-                0x08006cfc                _FF26W
-                0x08006d08                _FF10R
-                0x08006d14                _FF11R
-                0x08006d20                _FF12R
-                0x08006d2c                _FF13R
-                0x08006d38                _FF14R
-                0x08006d44                _FF16R
-                0x08006d50                _FF17R
-                0x08006d5c                _FF18R
-                0x08006d68                _FF19R
-                0x08006d74                _FF1AR
-                0x08006d84                _FF1BR
-                0x08006d90                _FF1CR
-                0x08006da0                _FF1DR
-                0x08006dac                _FF1ER
-                0x08006db8                _FF30R
-                0x08006dc8                _FF20R
-                0x08006dd4                _FF21R
-                0x08006de0                _FF22R
-                0x08006dec                _FF23R
-                0x08006df8                _FF24R
-                0x08006e04                _FF25R
-                0x08006e10                _FF26R
-                0x08006e84                sgb_reset
-                0x08006f38                joy0_W_SGB
-                0x08007518                GBPalettes
-                0x080086b8                GBPalettes_end
-                0x080086b8                SaveRegs
-                0x08008720                LoadRegs
-                0x0800878c                SaveIo
-                0x0800881c                LoadIo
-                0x080089a8                AfterLoadState
- .text          0x08008af4        0x0 /tmp/jagoombacolor/build/data.o
- .text          0x08008af4        0x2 /tmp/jagoombacolor/build/stub.o
-                0x08008af4                _init
- *fill*         0x08008af6        0x2 ff
- .text          0x08008af8       0x60 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
-                0x08008af8                strlen
- .text          0x08008b58       0x50 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
-                0x08008b58                strcat
- .text          0x08008ba8       0x10 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
-                0x08008ba8                strcpy
- .text          0x08008bb8       0x54 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
-                0x08008bb8                __libc_init_array
- .text          0x08008c0c       0xb0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
-                0x08008c0c                memset
- .text          0x08008cbc       0xbc /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
-                0x08008cbc                memmove
- .text          0x08008d78       0x68 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
-                0x08008d78                strncpy
- .text          0x08008de0       0x4c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
-                0x08008de0                memcmp
- .text          0x08008e2c       0x14 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
-                0x08008e2c                __gnu_thumb1_case_sqi
- .text          0x08008e40       0x14 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
-                0x08008e40                __gnu_thumb1_case_uqi
- .text          0x08008e54       0x14 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
-                0x08008e54                __gnu_thumb1_case_shi
- .text          0x08008e68      0x11c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
-                0x08008e68                __udivsi3
-                0x08008e68                __aeabi_uidiv
-                0x08008f64                __aeabi_uidivmod
- .text          0x08008f84      0x150 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
-                0x08008f84                __aeabi_idiv
-                0x08008f84                __divsi3
-                0x080090b4                __aeabi_idivmod
- .text          0x080090d4        0x4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
-                0x080090d4                __aeabi_ldiv0
-                0x080090d4                __aeabi_idiv0
+                0x0800314c                changeautoborder
+                0x0800315c                brightset
+                0x08003188                restart
+                0x08003198                timermode
+                0x080031bc                changelcdhack
+                0x080031e0                sleepset
+                0x08003234                savestate
+                0x08003238                loadstate
+                0x0800323a                strmerge_str
+                0x08003264                text1_str
+                0x0800329c                print_1_func
+                0x080032ac                text2_str
+                0x080032d4                print_2_func
+                0x080032e4                drawui2
+                0x080033c8                drawui3
+                0x08003450                drawui4
+                0x080034ac                text
+                0x080034e0                text2
+                0x08003500                strmerge
+                0x0800351c                drawui1
+                0x0800360c                subui
+                0x080036b0                ui2
+                0x080036be                ui3
+                0x080036d8                ui4
+                0x080036e6                drawclock
+                0x08003754                ui
+                0x080038c4                fadetowhite
+                0x080038ee                exit_
+                0x08003924                sleep_
+                0x08003950                draw_palette_list
+                0x080039b0                chpalette
+ .text          0x08003a20      0x328 /tmp/jagoombacolor/build/scaling.o
+                0x08003a56                scaling_init
+                0x08003a7c                scaling_update_palette
+                0x08003aa8                scaling_output
+                0x08003bc4                scaling_render_frame
+ .text          0x08003d48       0x3c /tmp/jagoombacolor/build/scaling_asm.o
+                0x08003d48                build_exp_table
+ .text          0x08003d84     0x510c /tmp/jagoombacolor/build/all.o
+                0x0800487c                update_doublespeed_ui
+                0x08004998                emu_reset
+                0x08004a6c                run
+                0x08004a88                speedhack_reset
+                0x08004b04                install_speedhack
+                0x08005274                echo_R
+                0x08005284                echo_W
+                0x080053a8                memset32_
+                0x080053ac                memcpy32_
+                0x080054c4                loadcart_after_sgb_border
+                0x080054dc                loadcart
+                0x080057b8                map0123_
+                0x080057e4                mbc0init
+                0x080057f8                mbc1init
+                0x08005868                mbc2init
+                0x08005894                mbc3init
+                0x0800596c                mbc5init
+                0x0800598c                mbc7init
+                0x080059b8                huc1init
+                0x080059d8                huc3init
+                0x080059f8                mmm01init
+                0x080059f8                mbc4init
+                0x080059f8                mbc6init
+                0x08005a7c                move_ui_asm
+                0x08005aac                GFX_init_irq
+                0x08005ae4                GFX_init
+                0x08005b80                GFX_reset
+                0x08005d1c                resetlcdregs
+                0x08005d44                PaletteTxAll
+                0x08005d88                paletteinit
+                0x08005de0                transfer_palette
+                0x08005e98                debug_
+                0x08005e9c                update_sgb_palette
+                0x080067fc                FF42_R
+                0x08006804                FF43_R
+                0x0800680c                FF44_W
+                0x08006810                FF47_R
+                0x08006818                FF48_R
+                0x08006820                FF49_R
+                0x08006828                FF4A_R
+                0x08006830                FF4B_R
+                0x08006838                FF68_R
+                0x08006840                FF69_R
+                0x08006854                FF6A_R
+                0x0800685c                FF6B_R
+                0x08006870                FF68_W
+                0x08006878                FF6A_W
+                0x08006880                update_lcdhack
+                0x08006908                breakpoint
+                0x08006910                vbaprint
+                0x08006918                LZ77UnCompVram
+                0x08006920                waitframe
+                0x08006930                CheckGBAVersion
+                0x08006968                jump_r0
+                0x0800696c                doReset
+                0x080069c0                VISOLY_START
+                0x08006b7c                VISOLY_END
+                0x08006b7c                suspend
+                0x08006bb8                thumbcall_r1
+                0x08006bbc                gettime
+                0x08006ccc                IO_reset
+                0x08006f24                Sound_reset
+                0x08006f68                _FF10W
+                0x08006f74                _FF11W
+                0x08006f84                _FF12W
+                0x08006f90                _FF13W
+                0x08006fa0                _FF14W
+                0x08006fb0                _FF16W
+                0x08006fc0                _FF17W
+                0x08006fcc                _FF18W
+                0x08006fdc                _FF19W
+                0x08006fec                _FF1AW
+                0x08007000                _FF1BW
+                0x08007010                _FF1CW
+                0x08007020                _FF1DW
+                0x08007030                _FF1EW
+                0x08007040                _FF30W
+                0x08007050                _FF20W
+                0x0800705c                _FF21W
+                0x08007068                _FF22W
+                0x08007074                _FF23W
+                0x08007080                _FF24W
+                0x0800708c                _FF25W
+                0x08007098                _FF26W
+                0x080070a4                _FF10R
+                0x080070b0                _FF11R
+                0x080070bc                _FF12R
+                0x080070c8                _FF13R
+                0x080070d4                _FF14R
+                0x080070e0                _FF16R
+                0x080070ec                _FF17R
+                0x080070f8                _FF18R
+                0x08007104                _FF19R
+                0x08007110                _FF1AR
+                0x08007120                _FF1BR
+                0x0800712c                _FF1CR
+                0x0800713c                _FF1DR
+                0x08007148                _FF1ER
+                0x08007154                _FF30R
+                0x08007164                _FF20R
+                0x08007170                _FF21R
+                0x0800717c                _FF22R
+                0x08007188                _FF23R
+                0x08007194                _FF24R
+                0x080071a0                _FF25R
+                0x080071ac                _FF26R
+                0x08007220                sgb_reset
+                0x080072d4                joy0_W_SGB
+                0x080078b4                GBPalettes
+                0x08008a54                GBPalettes_end
+                0x08008a54                SaveRegs
+                0x08008abc                LoadRegs
+                0x08008b28                SaveIo
+                0x08008bb8                LoadIo
+                0x08008d44                AfterLoadState
+ .text          0x08008e90        0x0 /tmp/jagoombacolor/build/data.o
+ .text          0x08008e90        0x2 /tmp/jagoombacolor/build/stub.o
+                0x08008e90                _init
+ *fill*         0x08008e92        0x2 ff
+ .text          0x08008e94       0x60 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+                0x08008e94                strlen
+ .text          0x08008ef4       0x50 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+                0x08008ef4                strcat
+ .text          0x08008f44       0x10 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+                0x08008f44                strcpy
+ .text          0x08008f54       0x54 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+                0x08008f54                __libc_init_array
+ .text          0x08008fa8       0xb0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+                0x08008fa8                memset
+ .text          0x08009058       0xbc /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+                0x08009058                memmove
+ .text          0x08009114       0x68 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+                0x08009114                strncpy
+ .text          0x0800917c       0x4c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+                0x0800917c                memcmp
+ .text          0x080091c8       0x14 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+                0x080091c8                __gnu_thumb1_case_sqi
+ .text          0x080091dc       0x14 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+                0x080091dc                __gnu_thumb1_case_uqi
+ .text          0x080091f0       0x14 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+                0x080091f0                __gnu_thumb1_case_shi
+ .text          0x08009204      0x11c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+                0x08009204                __udivsi3
+                0x08009204                __aeabi_uidiv
+                0x08009300                __aeabi_uidivmod
+ .text          0x08009320      0x150 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+                0x08009320                __aeabi_idiv
+                0x08009320                __divsi3
+                0x08009450                __aeabi_idivmod
+ .text          0x08009470        0x4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+                0x08009470                __aeabi_ldiv0
+                0x08009470                __aeabi_idiv0
  *(.text .stub SORT_BY_NAME(.text.*) .gnu.linkonce.t.*)
- .text.startup  0x080090d8       0x64 /tmp/jagoombacolor/build/main.o
-                0x080090d8                main
- *fill*         0x0800913c        0x4 ff
+ .text.startup  0x08009474       0x64 /tmp/jagoombacolor/build/main.o
+                0x08009474                main
  .text.startup.__stub
-                0x08009140      0x13c linker stubs
+                0x080094d8      0x13c linker stubs
  *(.text.*personality*)
  *(.gnu.warning)
  *(.glue_7t)
- .glue_7t       0x08009298        0x0 linker stubs
+ .glue_7t       0x08009630        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x08009298        0x0 linker stubs
+ .glue_7        0x08009630        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x08009298        0x0 linker stubs
-                0x08009298                        . = ALIGN (0x4)
-                0x08009298                        __text_end = .
+ .vfp11_veneer  0x08009630        0x0 linker stubs
+                0x08009630                        . = ALIGN (0x4)
+                0x08009630                        __text_end = .
 
-.v4_bx          0x08009298        0x0
- .v4_bx         0x08009298        0x0 linker stubs
+.v4_bx          0x08009630        0x0
+ .v4_bx         0x08009630        0x0 linker stubs
 
-.iplt           0x08009298        0x0
- .iplt          0x08009298        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
+.iplt           0x08009630        0x0
+ .iplt          0x08009630        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
 
-.fini           0x08009298        0x0
+.fini           0x08009630        0x0
  *(.fini)
-                0x08009298                        . = ALIGN (0x4)
+                0x08009630                        . = ALIGN (0x4)
 
-.rodata         0x080092a0     0x1dbc
+.rodata         0x08009630     0x1de4
  *(.rodata)
- .rodata        0x080092a0        0x4 /tmp/jagoombacolor/build/cache.o
-                0x080092a0                bank_1
- .rodata        0x080092a4      0x112 /tmp/jagoombacolor/build/gbcgamedetect.o
-                0x080092a4                gameHashTable
- .rodata        0x080093b6        0x5 /tmp/jagoombacolor/build/minilzo.o
-                0x080093b6                __lzo_copyright
- .rodata        0x080093bb        0xb /tmp/jagoombacolor/build/pocketnes_text.o
- .rodata        0x080093c6        0x9 /tmp/jagoombacolor/build/rumble.o
-                0x080093c6                GBPData
- *fill*         0x080093cf        0x1 ff
- .rodata        0x080093d0       0x84 /tmp/jagoombacolor/build/savestate.o
-                0x080093d0                tags
-                0x080093fc                loadFunc
-                0x08009428                saveFunc
- .rodata        0x08009454      0x100 /tmp/jagoombacolor/build/speedhack.o
-                0x08009454                INS_TABLE
- .rodata        0x08009554       0x3c /tmp/jagoombacolor/build/sram.o
-                0x08009560                configtemplate
- .rodata        0x08009590      0x2d4 /tmp/jagoombacolor/build/ui.o
-                0x08009590                vsynctxt
-                0x0800959c                autotxt
-                0x080095a8                sleeptxt
-                0x080095b8                gbtxt
-                0x080095c8                brightxt
-                0x080095dc                palnumtxt
-                0x080095ec                clocktxt
-                0x080095f4                lcdhacktxt
-                0x08009604                hostname
-                0x08009618                drawuiX
-                0x0800962c                MENUXITEMS
-                0x08009634                fnlistX
-                0x08009648                paltxt
-                0x080097c0                bordtxt
-                0x080097d0                ctrltxt
-                0x080097e4                fnlist4
-                0x080097ec                fnlist3
-                0x080097f8                fnlist2
-                0x08009818                fnlist1
-                0x08009844                multifnlist
- *fill*         0x08009864        0xc ff
- .rodata        0x08009870      0x810 /tmp/jagoombacolor/build/data.o
-                0x08009870                font_lz77
-                0x0800a040                fontpal_bin
-                0x0800a040                font_lz77_end
-                0x0800a080                fontpal_bin_end
- .rodata        0x0800a080      0x7d0 /tmp/jagoombacolor/build/font_lz77.o
-                0x0800a080                _binary__tmp_jagoombacolor_src_font__lz77_start
-                0x0800a850                _binary__tmp_jagoombacolor_src_font__lz77_end
- .rodata        0x0800a850       0x40 /tmp/jagoombacolor/build/fontpal_bin.o
-                0x0800a850                _binary__tmp_jagoombacolor_src_fontpal_bin_start
-                0x0800a890                _binary__tmp_jagoombacolor_src_fontpal_bin_end
+ .rodata        0x08009630        0x4 /tmp/jagoombacolor/build/cache.o
+                0x08009630                bank_1
+ .rodata        0x08009634      0x112 /tmp/jagoombacolor/build/gbcgamedetect.o
+                0x08009634                gameHashTable
+ .rodata        0x08009746        0x5 /tmp/jagoombacolor/build/minilzo.o
+                0x08009746                __lzo_copyright
+ .rodata        0x0800974b        0xb /tmp/jagoombacolor/build/pocketnes_text.o
+ .rodata        0x08009756        0x9 /tmp/jagoombacolor/build/rumble.o
+                0x08009756                GBPData
+ *fill*         0x0800975f        0x1 ff
+ .rodata        0x08009760       0x84 /tmp/jagoombacolor/build/savestate.o
+                0x08009760                tags
+                0x0800978c                loadFunc
+                0x080097b8                saveFunc
+ .rodata        0x080097e4      0x100 /tmp/jagoombacolor/build/speedhack.o
+                0x080097e4                INS_TABLE
+ .rodata        0x080098e4       0x3c /tmp/jagoombacolor/build/sram.o
+                0x080098f0                configtemplate
+ .rodata        0x08009920      0x2e4 /tmp/jagoombacolor/build/ui.o
+                0x08009920                vsynctxt
+                0x0800992c                autotxt
+                0x08009938                sleeptxt
+                0x08009948                gbtxt
+                0x08009958                brightxt
+                0x0800996c                palnumtxt
+                0x0800997c                scaletxt
+                0x08009988                clocktxt
+                0x08009990                lcdhacktxt
+                0x080099a0                hostname
+                0x080099b4                drawuiX
+                0x080099c8                MENUXITEMS
+                0x080099d0                fnlistX
+                0x080099e4                paltxt
+                0x08009b5c                bordtxt
+                0x08009b6c                ctrltxt
+                0x08009b80                fnlist4
+                0x08009b88                fnlist3
+                0x08009b98                fnlist2
+                0x08009bb8                fnlist1
+                0x08009be4                multifnlist
+ *fill*         0x08009c04        0xc ff
+ .rodata        0x08009c10      0x810 /tmp/jagoombacolor/build/data.o
+                0x08009c10                font_lz77
+                0x0800a3e0                fontpal_bin
+                0x0800a3e0                font_lz77_end
+                0x0800a420                fontpal_bin_end
+ .rodata        0x0800a420      0x7d0 /tmp/jagoombacolor/build/font_lz77.o
+                0x0800a420                _binary__tmp_jagoombacolor_src_font__lz77_start
+                0x0800abf0                _binary__tmp_jagoombacolor_src_font__lz77_end
+ .rodata        0x0800abf0       0x40 /tmp/jagoombacolor/build/fontpal_bin.o
+                0x0800abf0                _binary__tmp_jagoombacolor_src_fontpal_bin_start
+                0x0800ac30                _binary__tmp_jagoombacolor_src_fontpal_bin_end
  *all.rodata*(*)
  *(.roda)
  *(.rodata.*)
  .rodata.str1.1
-                0x0800a890      0x7cc /tmp/jagoombacolor/build/main.o
+                0x0800ac30      0x7e4 /tmp/jagoombacolor/build/main.o
                                  0x81 (size before relaxing)
  .rodata.str1.1
-                0x0800b05c       0x11 /tmp/jagoombacolor/build/minilzo.o
+                0x0800b414       0x11 /tmp/jagoombacolor/build/minilzo.o
  .rodata.str1.1
-                0x0800b05c       0xe3 /tmp/jagoombacolor/build/sram.o
+                0x0800b414       0xe3 /tmp/jagoombacolor/build/sram.o
  .rodata.str1.1
-                0x0800b05c      0x676 /tmp/jagoombacolor/build/ui.o
+                0x0800b414      0x68e /tmp/jagoombacolor/build/ui.o
  *(.gnu.linkonce.r*)
-                0x0800b6d4                        . = ALIGN (0x4)
+                0x0800baa4                        . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800b05c                        __exidx_start = .
+                0x0800b414                        __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0800b05c                        __exidx_end = .
+                0x0800b414                        __exidx_end = .
 
-.ctors          0x0800b05c        0x0
+.ctors          0x0800b414        0x0
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
-                0x0800b05c                        . = ALIGN (0x4)
+                0x0800b414                        . = ALIGN (0x4)
 
-.dtors          0x0800b05c        0x0
+.dtors          0x0800b414        0x0
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x0800b05c                        . = ALIGN (0x4)
+                0x0800b414                        . = ALIGN (0x4)
 
-.eh_frame       0x0800b05c        0x0
+.eh_frame       0x0800b414        0x0
  *(.eh_frame)
-                0x0800b05c                        . = ALIGN (0x4)
+                0x0800b414                        . = ALIGN (0x4)
 
 .gcc_except_table
-                0x0800b05c        0x0
+                0x0800b414        0x0
  *(.gcc_except_table)
-                0x0800b05c                        . = ALIGN (0x4)
-                0x0800b05c                        __iwram_lma = .
+                0x0800b414                        . = ALIGN (0x4)
+                0x0800b414                        __iwram_lma = .
 
 .bss_prefix     0x03000000        0x0
                 0x03000000                        __bss_prefix_start__ = ABSOLUTE (.)
@@ -521,426 +528,437 @@ Linker script and memory map
                 0x03000000                        . = ALIGN (0x4)
                 0x03000000                        __bss_prefix_end__ = ABSOLUTE (.)
 
-.iwram          0x03000000     0x7840 load address 0x0800b05c
+.iwram          0x03000000     0x7860 load address 0x0800b414
                 0x03000000                        __iwram_start__ = ABSOLUTE (.)
  *(.iwram)
  *iwram.*(.text)
  *(SORT_BY_NAME(.iwram.*))
  .iwram.0       0x03000000     0x2cf8 /tmp/jagoombacolor/build/all.o
                 0x03000010                _00
- .iwram.1       0x03002cf8     0x1798 /tmp/jagoombacolor/build/all.o
+ .iwram.1       0x03002cf8     0x17b8 /tmp/jagoombacolor/build/all.o
                 0x03002d88                vbldummy
                 0x03002d8c                vblankfptr
                 0x03002d94                vcountfptr
                 0x03002d9c                vblankinterrupt
-                0x030031bc                update_ui_border_masks
-                0x0300352c                FF46_W
-                0x030036bc                vcountinterrupt
-                0x0300375c                FF40_R
-                0x03003764                FF40_W
-                0x03003884                FF42_W
-                0x030038a8                FF43_W
-                0x030038dc                FF44_R
-                0x030039d4                FF47_W
-                0x03003a28                FF48_W
-                0x03003a38                FF49_W
-                0x03003a48                FF4A_W
-                0x03003a6c                FF4F_W
-                0x03003aa8                FF4F_R
-                0x03003ab4                FF4B_W
-                0x03003ad8                vram_W_8
-                0x03003b10                vram_W_9
-                0x03003b40                vram_W2
-                0x03003b5c                FF69_W
-                0x03003b84                FF6B_W
-                0x03003bc4                OAM_R
-                0x03003bd8                OAM_W
-                0x03003c00                fpsenabled
-                0x03003cd4                refreshNESjoypads
-                0x03003d10                joycfg
-                0x03003d24                _F0
-                0x03003d54                _F2
-                0x03003d88                IO_R
-                0x03003d94                IO_High_R
-                0x03003da0                io_read_tbl
-                0x03003ea4                FF41_R_ptr
-                0x03003eb0                FF44_R_ptr
-                0x03003fa0                _E0
-                0x03003fd8                _E2
-                0x03004014                IO_W
-                0x03004020                IO_High_W
-                0x0300402c                joypad_write_ptr
-                0x0300402c                io_write_tbl
-                0x03004250                _FF70W
-                0x030042bc                joy0_W
-                0x030042ec                joy0_R_SGB
-                0x030043d4                copy_map_and_compare
- .iwram.2       0x03004490      0x5e0 /tmp/jagoombacolor/build/all.o
-                0x03004490                empty_R
-                0x03004490                void
-                0x03004498                empty_W
-                0x0300449c                mem_R00
-                0x030044a8                mem_R20
-                0x030044b4                mem_R40
-                0x030044c0                mem_R60
-                0x030044cc                mem_R80
-                0x030044d8                mem_RA0
-                0x030044e4                mem_RC0
-                0x030044f0                mem_RC0_2
-                0x030044fc                sram_W2
-                0x03004500                sram_W2_modify
-                0x03004508                sram_W
-                0x03004514                wram_W
-                0x03004524                wram_W_2
-                0x03004530                memset32
-                0x030045a4                memcpy32
-                0x03004614                bytecopy
-                0x03004628                memset8
-                0x03004638                memcpy
-                0x03004640                memcpy_unaligned_src
-                0x0300469c                RamSelect
- .iwram.3       0x03004a70      0x63c /tmp/jagoombacolor/build/all.o
-                0x03004bc0                line145_to_end
-                0x03004c1c                immediate_check_irq
-                0x03004c34                default_scanlinehook
-                0x03004dd8                checkIRQ
-                0x03004fcc                FF41_W
-                0x03004ff4                FF41_R_vblank
-                0x03005000                FF41_R
-                0x03005000                lcdstat
-                0x03005004                FF41_modify1
-                0x0300504c                FF45_R
-                0x03005054                FF45_W
- .iwram.4       0x030050ac       0x70 /tmp/jagoombacolor/build/all.o
-                0x030050ac                map4567_
-                0x030050f4                mapAB_
+                0x030031dc                update_ui_border_masks
+                0x0300354c                FF46_W
+                0x030036dc                vcountinterrupt
+                0x0300377c                FF40_R
+                0x03003784                FF40_W
+                0x030038a4                FF42_W
+                0x030038c8                FF43_W
+                0x030038fc                FF44_R
+                0x030039f4                FF47_W
+                0x03003a48                FF48_W
+                0x03003a58                FF49_W
+                0x03003a68                FF4A_W
+                0x03003a8c                FF4F_W
+                0x03003ac8                FF4F_R
+                0x03003ad4                FF4B_W
+                0x03003af8                vram_W_8
+                0x03003b30                vram_W_9
+                0x03003b60                vram_W2
+                0x03003b7c                FF69_W
+                0x03003ba4                FF6B_W
+                0x03003be4                OAM_R
+                0x03003bf8                OAM_W
+                0x03003c20                fpsenabled
+                0x03003cf4                refreshNESjoypads
+                0x03003d30                joycfg
+                0x03003d44                _F0
+                0x03003d74                _F2
+                0x03003da8                IO_R
+                0x03003db4                IO_High_R
+                0x03003dc0                io_read_tbl
+                0x03003ec4                FF41_R_ptr
+                0x03003ed0                FF44_R_ptr
+                0x03003fc0                _E0
+                0x03003ff8                _E2
+                0x03004034                IO_W
+                0x03004040                IO_High_W
+                0x0300404c                joypad_write_ptr
+                0x0300404c                io_write_tbl
+                0x03004270                _FF70W
+                0x030042dc                joy0_W
+                0x0300430c                joy0_R_SGB
+                0x030043f4                copy_map_and_compare
+ .iwram.2       0x030044b0      0x5e0 /tmp/jagoombacolor/build/all.o
+                0x030044b0                empty_R
+                0x030044b0                void
+                0x030044b8                empty_W
+                0x030044bc                mem_R00
+                0x030044c8                mem_R20
+                0x030044d4                mem_R40
+                0x030044e0                mem_R60
+                0x030044ec                mem_R80
+                0x030044f8                mem_RA0
+                0x03004504                mem_RC0
+                0x03004510                mem_RC0_2
+                0x0300451c                sram_W2
+                0x03004520                sram_W2_modify
+                0x03004528                sram_W
+                0x03004534                wram_W
+                0x03004544                wram_W_2
+                0x03004550                memset32
+                0x030045c4                memcpy32
+                0x03004634                bytecopy
+                0x03004648                memset8
+                0x03004658                memcpy
+                0x03004660                memcpy_unaligned_src
+                0x030046bc                RamSelect
+ .iwram.3       0x03004a90      0x63c /tmp/jagoombacolor/build/all.o
+                0x03004be0                line145_to_end
+                0x03004c3c                immediate_check_irq
+                0x03004c54                default_scanlinehook
+                0x03004df8                checkIRQ
+                0x03004fec                FF41_W
+                0x03005014                FF41_R_vblank
+                0x03005020                FF41_R
+                0x03005020                lcdstat
+                0x03005024                FF41_modify1
+                0x0300506c                FF45_R
+                0x03005074                FF45_W
+ .iwram.4       0x030050cc       0x70 /tmp/jagoombacolor/build/all.o
+                0x030050cc                map4567_
+                0x03005114                mapAB_
  .iwram.end.100
-                0x0300511c      0x524 /tmp/jagoombacolor/build/all.o
-                0x03005120                _quickhackused
-                0x03005121                _quickhackcounter
-                0x03005124                _speedhack_pc
-                0x03005128                g_readmem_tbl
-                0x03005168                op_table
-                0x03005168                GLOBAL_PTR_BASE
-                0x03005568                g_writemem_tbl
-                0x030055a8                rommap
-                0x030055a8                g_memmap_tbl
-                0x030055e8                cpustate
-                0x0300560d                gbc_mode
-                0x0300561c                frametotal
-                0x0300563c                doubletimer
-                0x0300563c                request_gba_mode
-                0x0300563e                request_gb_type
-                0x0300563f                novblankwait
+                0x0300513c      0x524 /tmp/jagoombacolor/build/all.o
+                0x03005140                _quickhackused
+                0x03005141                _quickhackcounter
+                0x03005144                _speedhack_pc
+                0x03005148                g_readmem_tbl
+                0x03005188                op_table
+                0x03005188                GLOBAL_PTR_BASE
+                0x03005588                g_writemem_tbl
+                0x030055c8                rommap
+                0x030055c8                g_memmap_tbl
+                0x03005608                cpustate
+                0x0300562d                gbc_mode
+                0x0300563c                frametotal
+                0x0300565c                doubletimer
+                0x0300565c                request_gba_mode
+                0x0300565e                request_gb_type
+                0x0300565f                novblankwait
  .iwram.end.101
-                0x03005640       0xac /tmp/jagoombacolor/build/all.o
-                0x03005640                FPSValue
-                0x03005644                AGBinput
-                0x03005648                EMUinput
-                0x0300564c                lcdstate
-                0x03005650                g_scanline
-                0x0300565b                _vrambank
-                0x0300565c                _dma_src
-                0x0300565e                _dma_dest
-                0x03005660                _dirty_tile_bits
-                0x03005664                _gb_oam_buffer_alt
-                0x03005693                ui_border_visible
-                0x03005694                sgb_palette_number
-                0x03005695                gammavalue
-                0x03005696                darkness
-                0x030056a8                ui_x
-                0x030056ac                ui_y_real
-                0x030056d0                _gb_oam_buffer_screen
-                0x030056d4                _gb_oam_buffer_writing
-                0x030056d8                palettebank
-                0x030056ea                g_lcdhack
-                0x030056eb                _dmamode
+                0x03005660       0xac /tmp/jagoombacolor/build/all.o
+                0x03005660                FPSValue
+                0x03005664                AGBinput
+                0x03005668                EMUinput
+                0x0300566c                lcdstate
+                0x0300566e                scrollX
+                0x0300566f                scrollY
+                0x03005670                g_scanline
+                0x0300567b                _vrambank
+                0x0300567c                _dma_src
+                0x0300567e                _dma_dest
+                0x03005680                _dirty_tile_bits
+                0x03005684                _gb_oam_buffer_alt
+                0x030056b3                ui_border_visible
+                0x030056b4                sgb_palette_number
+                0x030056b5                gammavalue
+                0x030056b6                darkness
+                0x030056c8                ui_x
+                0x030056cc                ui_y_real
+                0x030056f0                _gb_oam_buffer_screen
+                0x030056f4                _gb_oam_buffer_writing
+                0x030056f8                palettebank
+                0x0300570a                g_lcdhack
+                0x0300570b                _dmamode
  .iwram.end.102
-                0x030056ec       0x4c /tmp/jagoombacolor/build/all.o
-                0x030056ec                g_banks
-                0x03005720                romstart
-                0x03005724                romnum
-                0x03005728                g_emuflags
-                0x03005730                g_rammask
-                0x03005734                g_cartflags
-                0x03005735                g_sramsize
+                0x0300570c       0x4c /tmp/jagoombacolor/build/all.o
+                0x0300570c                g_banks
+                0x03005740                romstart
+                0x03005744                romnum
+                0x03005748                g_emuflags
+                0x03005750                g_rammask
+                0x03005754                g_cartflags
+                0x03005755                g_sramsize
  .iwram.end.103
-                0x03005738        0x8 /tmp/jagoombacolor/build/all.o
+                0x03005758        0x8 /tmp/jagoombacolor/build/all.o
  .iwram.end.104
-                0x03005740       0x1c /tmp/jagoombacolor/build/all.o
-                0x0300574b                g_sgb_mask
-                0x0300574c                g_update_border_palette
-                0x0300574d                auto_border
-                0x0300574e                _autoborderstate
+                0x03005760       0x1c /tmp/jagoombacolor/build/all.o
+                0x0300576b                g_sgb_mask
+                0x0300576c                g_update_border_palette
+                0x0300576d                auto_border
+                0x0300576e                _autoborderstate
  .iwram.end.105
-                0x0300575c        0xc /tmp/jagoombacolor/build/all.o
-                0x03005760                sleeptime
-                0x03005764                dontstop
-                0x03005765                g_hackflags
+                0x0300577c        0xc /tmp/jagoombacolor/build/all.o
+                0x03005780                sleeptime
+                0x03005784                dontstop
+                0x03005785                g_hackflags
  .iwram.end.106
-                0x03005768       0x40 /tmp/jagoombacolor/build/all.o
-                0x03005770                _vram_packet_dest
-                0x03005774                _vram_packet_source
+                0x03005788       0x40 /tmp/jagoombacolor/build/all.o
+                0x03005790                _vram_packet_dest
+                0x03005794                _vram_packet_source
  .iwram.end.107
-                0x030057a8     0x2080 /tmp/jagoombacolor/build/all.o
-                0x030057a8                XGB_RAM
-                0x030077a8                XGB_HRAM
+                0x030057c8     0x2080 /tmp/jagoombacolor/build/all.o
+                0x030057c8                XGB_RAM
+                0x030077c8                XGB_HRAM
  .iwram.end.107.__stub
-                0x03007828       0x18 linker stubs
-                0x03007840                        . = ALIGN (0x4)
-                0x03007840                        __iwram_end__ = ABSOLUTE (.)
-                0x0801289c                        __data_lma = (__iwram_lma + SIZEOF (.iwram))
+                0x03007848       0x18 linker stubs
+                0x03007860                        . = ALIGN (0x4)
+                0x03007860                        __iwram_end__ = ABSOLUTE (.)
+                0x08012c74                        __data_lma = (__iwram_lma + SIZEOF (.iwram))
 
-.data           0x03007840        0x0 load address 0x0801289c
-                0x03007840                        __data_start__ = ABSOLUTE (.)
+.data           0x03007860      0x200 load address 0x08012c74
+                0x03007860                        __data_start__ = ABSOLUTE (.)
  *(.data)
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/cache.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/dma.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/gbcgamedetect.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/main.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/mbclient.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/minilzo.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/pocketnes_text.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/rumble.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/savestate.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/speedhack.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/sram.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/ui.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/all.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/data.o
- .data          0x03007840        0x0 /tmp/jagoombacolor/build/stub.o
- .data          0x03007840        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
- .data          0x03007840        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
- .data          0x03007840        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
- .data          0x03007840        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
- .data          0x03007840        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
- .data          0x03007840        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
- .data          0x03007840        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
- .data          0x03007840        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
- .data          0x03007840        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
- .data          0x03007840        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
- .data          0x03007840        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
- .data          0x03007840        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
- .data          0x03007840        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
- .data          0x03007840        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/cache.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/dma.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/gbcgamedetect.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/main.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/mbclient.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/minilzo.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/pocketnes_text.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/rumble.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/savestate.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/speedhack.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/sram.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/ui.o
+ .data          0x03007860        0x0 /tmp/jagoombacolor/build/scaling.o
+ *fill*         0x03007860        0x0 ff
+ .data          0x03007860      0x200 /tmp/jagoombacolor/build/scaling_asm.o
+ .data          0x03007a60        0x0 /tmp/jagoombacolor/build/all.o
+ .data          0x03007a60        0x0 /tmp/jagoombacolor/build/data.o
+ .data          0x03007a60        0x0 /tmp/jagoombacolor/build/stub.o
+ .data          0x03007a60        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+ .data          0x03007a60        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+ .data          0x03007a60        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+ .data          0x03007a60        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+ .data          0x03007a60        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+ .data          0x03007a60        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+ .data          0x03007a60        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+ .data          0x03007a60        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+ .data          0x03007a60        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+ .data          0x03007a60        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .data          0x03007a60        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+ .data          0x03007a60        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+ .data          0x03007a60        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .data          0x03007a60        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
  *(SORT_BY_NAME(.data.*))
  *(.gnu.linkonce.d*)
-                0x03007840                        . = ALIGN (0x4)
-                0x0801289c                        __preinit_lma = (__data_lma + SIZEOF (.data))
+                0x03007a60                        . = ALIGN (0x4)
+                0x08012e74                        __preinit_lma = (__data_lma + SIZEOF (.data))
 
-.igot.plt       0x03007840        0x0 load address 0x0801289c
- .igot.plt      0x03007840        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
+.igot.plt       0x03007a60        0x0 load address 0x08012e74
+ .igot.plt      0x03007a60        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
 
-.preinit_array  0x03007840        0x0 load address 0x0801289c
-                0x03007840                        __preinit_array_start = ABSOLUTE (.)
+.preinit_array  0x03007a60        0x0 load address 0x08012e74
+                0x03007a60                        __preinit_array_start = ABSOLUTE (.)
  *(.preinit_array)
-                0x03007840                        __preinit_array_end = ABSOLUTE (.)
-                0x0801289c                        __init_lma = (__preinit_lma + SIZEOF (.preinit_array))
+                0x03007a60                        __preinit_array_end = ABSOLUTE (.)
+                0x08012e74                        __init_lma = (__preinit_lma + SIZEOF (.preinit_array))
 
-.init_array     0x03007840        0x0 load address 0x0801289c
-                0x03007840                        __init_array_start = ABSOLUTE (.)
+.init_array     0x03007a60        0x0 load address 0x08012e74
+                0x03007a60                        __init_array_start = ABSOLUTE (.)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x03007840                        __init_array_end = ABSOLUTE (.)
-                0x0801289c                        __fini_lma = (__init_lma + SIZEOF (.init_array))
+                0x03007a60                        __init_array_end = ABSOLUTE (.)
+                0x08012e74                        __fini_lma = (__init_lma + SIZEOF (.init_array))
 
-.fini_array     0x03007840        0x0 load address 0x0801289c
-                0x03007840                        __fini_array_start = ABSOLUTE (.)
+.fini_array     0x03007a60        0x0 load address 0x08012e74
+                0x03007a60                        __fini_array_start = ABSOLUTE (.)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
-                0x03007840                        __fini_array_end = ABSOLUTE (.)
-                0x0801289c                        __jcr_lma = (__fini_lma + SIZEOF (.fini_array))
+                0x03007a60                        __fini_array_end = ABSOLUTE (.)
+                0x08012e74                        __jcr_lma = (__fini_lma + SIZEOF (.fini_array))
 
 .jcr
  *(.jcr)
-                0x03007840                        __data_end__ = ABSOLUTE (.)
+                0x03007a60                        __data_end__ = ABSOLUTE (.)
 
-.bss            0x03007840      0x534
-                0x03007840                        __bss_start = ABSOLUTE (.)
-                0x03007840                        __bss_start__ = ABSOLUTE (.)
+.bss            0x03007a60      0x538
+                0x03007a60                        __bss_start = ABSOLUTE (.)
+                0x03007a60                        __bss_start__ = ABSOLUTE (.)
  *(.dynbss)
  *(.gnu.linkonce.b*)
  *(.bss)
- .bss           0x03007840        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
- .bss           0x03007840        0x0 /tmp/jagoombacolor/build/cache.o
- .bss           0x03007840       0x10 /tmp/jagoombacolor/build/dma.o
-                0x03007840                dirtyPacketIndex
-                0x03007844                vram_packet_first_source
-                0x03007848                vram_packet_first_dest
-                0x0300784c                incoming_packet_cursor
- .bss           0x03007850        0x0 /tmp/jagoombacolor/build/gbcgamedetect.o
- .bss           0x03007850        0x8 /tmp/jagoombacolor/build/main.o
- .bss           0x03007858        0x0 /tmp/jagoombacolor/build/mbclient.o
- .bss           0x03007858       0x10 /tmp/jagoombacolor/build/minilzo.o
-                0x03007864                __lzo_init_done
- .bss           0x03007868        0x0 /tmp/jagoombacolor/build/pocketnes_text.o
- .bss           0x03007868        0x0 /tmp/jagoombacolor/build/rumble.o
- .bss           0x03007868        0x0 /tmp/jagoombacolor/build/savestate.o
- .bss           0x03007868        0x0 /tmp/jagoombacolor/build/speedhack.o
- .bss           0x03007868        0x0 /tmp/jagoombacolor/build/sram.o
- .bss           0x03007868        0x0 /tmp/jagoombacolor/build/ui.o
- .bss           0x03007868        0x0 /tmp/jagoombacolor/build/all.o
- .bss           0x03007868        0x0 /tmp/jagoombacolor/build/data.o
- .bss           0x03007868        0x1 /tmp/jagoombacolor/build/stub.o
- .bss           0x03007869        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
- .bss           0x03007869        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
- .bss           0x03007869        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
- .bss           0x03007869        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
- .bss           0x03007869        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
- .bss           0x03007869        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
- .bss           0x03007869        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
- .bss           0x03007869        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
- .bss           0x03007869        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
- .bss           0x03007869        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
- .bss           0x03007869        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
- .bss           0x03007869        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
- .bss           0x03007869        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
- .bss           0x03007869        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+ .bss           0x03007a60        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
+ .bss           0x03007a60        0x0 /tmp/jagoombacolor/build/cache.o
+ .bss           0x03007a60       0x10 /tmp/jagoombacolor/build/dma.o
+                0x03007a60                dirtyPacketIndex
+                0x03007a64                vram_packet_first_source
+                0x03007a68                vram_packet_first_dest
+                0x03007a6c                incoming_packet_cursor
+ .bss           0x03007a70        0x0 /tmp/jagoombacolor/build/gbcgamedetect.o
+ .bss           0x03007a70        0x8 /tmp/jagoombacolor/build/main.o
+ .bss           0x03007a78        0x0 /tmp/jagoombacolor/build/mbclient.o
+ .bss           0x03007a78       0x10 /tmp/jagoombacolor/build/minilzo.o
+                0x03007a84                __lzo_init_done
+ .bss           0x03007a88        0x0 /tmp/jagoombacolor/build/pocketnes_text.o
+ .bss           0x03007a88        0x0 /tmp/jagoombacolor/build/rumble.o
+ .bss           0x03007a88        0x0 /tmp/jagoombacolor/build/savestate.o
+ .bss           0x03007a88        0x0 /tmp/jagoombacolor/build/speedhack.o
+ .bss           0x03007a88        0x0 /tmp/jagoombacolor/build/sram.o
+ .bss           0x03007a88        0x0 /tmp/jagoombacolor/build/ui.o
+ .bss           0x03007a88        0x4 /tmp/jagoombacolor/build/scaling.o
+                0x03007a88                g_scale_mode
+                0x03007a89                g_scaling_active
+ .bss           0x03007a8c        0x0 /tmp/jagoombacolor/build/scaling_asm.o
+ .bss           0x03007a8c        0x0 /tmp/jagoombacolor/build/all.o
+ .bss           0x03007a8c        0x0 /tmp/jagoombacolor/build/data.o
+ .bss           0x03007a8c        0x1 /tmp/jagoombacolor/build/stub.o
+ .bss           0x03007a8d        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+ .bss           0x03007a8d        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+ .bss           0x03007a8d        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+ .bss           0x03007a8d        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+ .bss           0x03007a8d        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+ .bss           0x03007a8d        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+ .bss           0x03007a8d        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+ .bss           0x03007a8d        0x0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+ .bss           0x03007a8d        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+ .bss           0x03007a8d        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .bss           0x03007a8d        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+ .bss           0x03007a8d        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+ .bss           0x03007a8d        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .bss           0x03007a8d        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
  *(COMMON)
  *(SORT_BY_NAME(.bss.*))
- *fill*         0x03007869        0x3 
- .bss.end       0x0300786c      0x508 /tmp/jagoombacolor/build/all.o
-                0x03007870                gbc_palette
-                0x03007970                CHR_DECODE
+ *fill*         0x03007a8d        0x3 
+ .bss.end       0x03007a90      0x508 /tmp/jagoombacolor/build/all.o
+                0x03007a94                gbc_palette
+                0x03007b94                CHR_DECODE
  *(.bss*)
-                0x03007d74                        . = ALIGN (0x4)
-                0x03007d74                        __bss_end__ = ABSOLUTE (.)
-                0x0801289c                        __iwram_overlay_lma = (__jcr_lma + SIZEOF (.jcr))
-                0x03007d74                        __iwram_overlay_start = .
+                0x03007f98                        . = ALIGN (0x4)
+                0x03007f98                        __bss_end__ = ABSOLUTE (.)
+                0x08012e74                        __iwram_overlay_lma = (__jcr_lma + SIZEOF (.jcr))
+                0x03007f98                        __iwram_overlay_start = .
 
-.iwram0         0x03007d74        0x0 load address 0x0801289c
+.iwram0         0x03007f98        0x0 load address 0x08012e74
  *(.iwram0)
-                0x03007d74                        . = ALIGN (0x4)
-                0x0801289c                        PROVIDE (__load_start_iwram0 = LOADADDR (.iwram0))
-                0x0801289c                        PROVIDE (__load_stop_iwram0 = (LOADADDR (.iwram0) + SIZEOF (.iwram0)))
+                0x03007f98                        . = ALIGN (0x4)
+                0x08012e74                        PROVIDE (__load_start_iwram0 = LOADADDR (.iwram0))
+                0x08012e74                        PROVIDE (__load_stop_iwram0 = (LOADADDR (.iwram0) + SIZEOF (.iwram0)))
 
-.iwram1         0x03007d74        0x0
+.iwram1         0x03007f98        0x0
  *(.iwram1)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram1 = LOADADDR (.iwram1))
                 [!provide]                        PROVIDE (__load_stop_iwram1 = (LOADADDR (.iwram1) + SIZEOF (.iwram1)))
 
-.iwram2         0x03007d74        0x0
+.iwram2         0x03007f98        0x0
  *(.iwram2)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram2 = LOADADDR (.iwram2))
                 [!provide]                        PROVIDE (__load_stop_iwram2 = (LOADADDR (.iwram2) + SIZEOF (.iwram2)))
 
-.iwram3         0x03007d74        0x0
+.iwram3         0x03007f98        0x0
  *(.iwram3)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram3 = LOADADDR (.iwram3))
                 [!provide]                        PROVIDE (__load_stop_iwram3 = (LOADADDR (.iwram3) + SIZEOF (.iwram3)))
 
-.iwram4         0x03007d74        0x0
+.iwram4         0x03007f98        0x0
  *(.iwram4)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram4 = LOADADDR (.iwram4))
                 [!provide]                        PROVIDE (__load_stop_iwram4 = (LOADADDR (.iwram4) + SIZEOF (.iwram4)))
 
-.iwram5         0x03007d74        0x0
+.iwram5         0x03007f98        0x0
  *(.iwram5)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram5 = LOADADDR (.iwram5))
                 [!provide]                        PROVIDE (__load_stop_iwram5 = (LOADADDR (.iwram5) + SIZEOF (.iwram5)))
 
-.iwram6         0x03007d74        0x0
+.iwram6         0x03007f98        0x0
  *(.iwram6)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram6 = LOADADDR (.iwram6))
                 [!provide]                        PROVIDE (__load_stop_iwram6 = (LOADADDR (.iwram6) + SIZEOF (.iwram6)))
 
-.iwram7         0x03007d74        0x0
+.iwram7         0x03007f98        0x0
  *(.iwram7)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram7 = LOADADDR (.iwram7))
                 [!provide]                        PROVIDE (__load_stop_iwram7 = (LOADADDR (.iwram7) + SIZEOF (.iwram7)))
 
-.iwram8         0x03007d74        0x0
+.iwram8         0x03007f98        0x0
  *(.iwram8)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram8 = LOADADDR (.iwram8))
                 [!provide]                        PROVIDE (__load_stop_iwram8 = (LOADADDR (.iwram8) + SIZEOF (.iwram8)))
 
-.iwram9         0x03007d74        0x0
+.iwram9         0x03007f98        0x0
  *(.iwram9)
-                0x03007d74                        . = ALIGN (0x4)
+                0x03007f98                        . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__load_start_iwram9 = LOADADDR (.iwram9))
                 [!provide]                        PROVIDE (__load_stop_iwram9 = (LOADADDR (.iwram9) + SIZEOF (.iwram9)))
-                0x03007d74                        __iwram_overlay_end = .
-                0x0801289c                        __ewram_lma = (__iwram_overlay_lma + (__iwram_overlay_end - __iwram_overlay_start))
-                0x03007d74                        __iheap_start = .
+                0x03007f98                        __iwram_overlay_end = .
+                0x08012e74                        __ewram_lma = (__iwram_overlay_lma + (__iwram_overlay_end - __iwram_overlay_start))
+                0x03007f98                        __iheap_start = .
                 0x02000000                        __ewram_start = ORIGIN (ewram)
 
-.ewram          0x02000000        0x4 load address 0x0801289c
+.ewram          0x02000000     0x5a04 load address 0x08012e74
  *(.ewram)
  .ewram         0x02000000        0x4 /tmp/jagoombacolor/build/sram.o
                 0x02000000                save_start
+ .ewram         0x02000004     0x5a00 /tmp/jagoombacolor/build/scaling.o
+                0x02000004                g_scaling_buffer
  *(SORT_BY_NAME(.ewram.*))
-                0x02000004                        . = ALIGN (0x4)
-                0x02000004                        __ewram_end = ABSOLUTE (.)
+                0x02005a04                        . = ALIGN (0x4)
+                0x02005a04                        __ewram_end = ABSOLUTE (.)
 
-.sbss           0x02000004       0xc0
-                0x02000004                        __sbss_start__ = ABSOLUTE (.)
+.sbss           0x02005a04       0xc0
+                0x02005a04                        __sbss_start__ = ABSOLUTE (.)
  *(.sbss)
- .sbss          0x02000004        0x4 /tmp/jagoombacolor/build/dma.o
-                0x02000004                dmaBaseAddress
- .sbss          0x02000008       0x48 /tmp/jagoombacolor/build/main.o
-                0x02000008                gameboyplayer
-                0x02000009                gbaversion
-                0x0200000c                textstart
-                0x02000010                pogoshell
-                0x02000014                roms
-                0x02000018                oldinput
-                0x0200001c                selectedrom
-                0x02000020                pogoshell_romname
-                0x02000040                rtc
-                0x02000044                ewram_start
-                0x02000048                max_multiboot_size
-                0x0200004c                copiedfromrom
- .sbss          0x02000050       0x10 /tmp/jagoombacolor/build/pocketnes_text.o
-                0x02000050                old_ui_x
-                0x02000054                ui_y
-                0x02000058                oldkey
-                0x0200005c                selected
- .sbss          0x02000060       0x14 /tmp/jagoombacolor/build/rumble.o
-                0x02000060                SerialIn
-                0x02000064                stage
-                0x02000066                SerOut1
-                0x02000068                ind
-                0x0200006a                SerOut0
-                0x0200006c                DoRumble
-                0x02000070                RumbleCnt
- .sbss          0x02000074        0x4 /tmp/jagoombacolor/build/savestate.o
-                0x02000074                saveVersion
- .sbss          0x02000078       0x20 /tmp/jagoombacolor/build/sram.o
-                0x02000078                sram_copy
-                0x0200007c                lzo_workspace
-                0x02000080                current_save_file
-                0x02000084                totalstatesize
-                0x02000088                sram_owner
-                0x0200008c                compressed_save
-                0x02000090                doNotLoadSram
-                0x02000094                uncompressed_save
- .sbss          0x02000098       0x2c /tmp/jagoombacolor/build/ui.o
-                0x02000098                autoA
-                0x02000099                autoB
-                0x0200009a                autostate
-                0x0200009b                stime
-                0x0200009c                str
-                0x020000bc                mainmenuitems
-                0x020000c0                main_ui_selection
+ .sbss          0x02005a04        0x4 /tmp/jagoombacolor/build/dma.o
+                0x02005a04                dmaBaseAddress
+ .sbss          0x02005a08       0x48 /tmp/jagoombacolor/build/main.o
+                0x02005a08                gameboyplayer
+                0x02005a09                gbaversion
+                0x02005a0c                textstart
+                0x02005a10                pogoshell
+                0x02005a14                roms
+                0x02005a18                oldinput
+                0x02005a1c                selectedrom
+                0x02005a20                pogoshell_romname
+                0x02005a40                rtc
+                0x02005a44                ewram_start
+                0x02005a48                max_multiboot_size
+                0x02005a4c                copiedfromrom
+ .sbss          0x02005a50       0x10 /tmp/jagoombacolor/build/pocketnes_text.o
+                0x02005a50                old_ui_x
+                0x02005a54                ui_y
+                0x02005a58                oldkey
+                0x02005a5c                selected
+ .sbss          0x02005a60       0x14 /tmp/jagoombacolor/build/rumble.o
+                0x02005a60                SerialIn
+                0x02005a64                stage
+                0x02005a66                SerOut1
+                0x02005a68                ind
+                0x02005a6a                SerOut0
+                0x02005a6c                DoRumble
+                0x02005a70                RumbleCnt
+ .sbss          0x02005a74        0x4 /tmp/jagoombacolor/build/savestate.o
+                0x02005a74                saveVersion
+ .sbss          0x02005a78       0x20 /tmp/jagoombacolor/build/sram.o
+                0x02005a78                sram_copy
+                0x02005a7c                lzo_workspace
+                0x02005a80                current_save_file
+                0x02005a84                totalstatesize
+                0x02005a88                sram_owner
+                0x02005a8c                compressed_save
+                0x02005a90                doNotLoadSram
+                0x02005a94                uncompressed_save
+ .sbss          0x02005a98       0x2c /tmp/jagoombacolor/build/ui.o
+                0x02005a98                autoA
+                0x02005a99                autoB
+                0x02005a9a                autostate
+                0x02005a9b                stime
+                0x02005a9c                str
+                0x02005abc                mainmenuitems
+                0x02005ac0                main_ui_selection
  *(SORT_BY_NAME(.sbss.*))
-                0x020000c4                        . = ALIGN (0x4)
-                0x020000c4                        __sbss_end__ = ABSOLUTE (.)
-                0x020000c4                        __end__ = ABSOLUTE (.)
-                0x020000c4                        __eheap_start = ABSOLUTE (.)
-                0x020100c4                        fake_heap_end = (__eheap_start + 0x10000)
-                0x080128a0                        __vram1_lma = (__ewram_lma + SIZEOF (.ewram))
+                0x02005ac4                        . = ALIGN (0x4)
+                0x02005ac4                        __sbss_end__ = ABSOLUTE (.)
+                0x02005ac4                        __end__ = ABSOLUTE (.)
+                0x02005ac4                        __eheap_start = ABSOLUTE (.)
+                0x02015ac4                        fake_heap_end = (__eheap_start + 0x10000)
+                0x08018878                        __vram1_lma = (__ewram_lma + SIZEOF (.ewram))
                 0x0600f000                        __vram1_start = ORIGIN (vram1)
 
-.vram1          0x0600f000      0x8d8 load address 0x080128a0
+.vram1          0x0600f000      0x8d8 load address 0x08018878
  *(.vram1)
  .vram1         0x0600f000      0x3d8 /tmp/jagoombacolor/build/dma.o
                 0x0600f09c                new_dma_packet
@@ -952,15 +970,15 @@ Linker script and memory map
                 0x0600f8d0                        . = ALIGN (0x4)
                 0x0600f8d8                        __vram1_end = ABSOLUTE (.)
                 0x0600f8d8                        __vram1_end__ = ABSOLUTE (.)
-                0x08013178                        __pad_lma = (__vram1_lma + SIZEOF (.vram1))
+                0x08019150                        __pad_lma = (__vram1_lma + SIZEOF (.vram1))
 
-.pad            0x0600f8d8        0x8 load address 0x08013178
+.pad            0x0600f8d8        0x8 load address 0x08019150
                 0x0600f8d8        0x4 LONG 0x52416b64
                 0x0600f8dc        0x4 LONG 0x4d
                 0x0600f8e0                        . = ALIGN (0x4)
-                0x08013180                        __rom_end__ = (__pad_lma + SIZEOF (.pad))
+                0x08019158                        __rom_end__ = (__pad_lma + SIZEOF (.pad))
 
-.rel.dyn        0x0600f8e0        0x0 load address 0x08013180
+.rel.dyn        0x0600f8e0        0x0 load address 0x08019158
  .rel.iplt      0x0600f8e0        0x0 /tmp/jagoombacolor/build/gba_crt0_my.o
 
 .stab
@@ -996,6 +1014,7 @@ Linker script and memory map
  .comment       0x00000026       0x27 /tmp/jagoombacolor/build/speedhack.o
  .comment       0x00000026       0x27 /tmp/jagoombacolor/build/sram.o
  .comment       0x00000026       0x27 /tmp/jagoombacolor/build/ui.o
+ .comment       0x00000026       0x27 /tmp/jagoombacolor/build/scaling.o
  .comment       0x00000026       0x27 /tmp/jagoombacolor/build/stub.o
  .comment       0x00000026       0x27 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
  .comment       0x00000026       0x27 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
@@ -1018,7 +1037,7 @@ Linker script and memory map
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x378
+.debug_aranges  0x00000000      0x398
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 /tmp/jagoombacolor/build/cache.o
@@ -1045,40 +1064,42 @@ Linker script and memory map
  .debug_aranges
                 0x00000178       0x20 /tmp/jagoombacolor/build/ui.o
  .debug_aranges
-                0x00000198       0x20 /tmp/jagoombacolor/build/stub.o
+                0x00000198       0x20 /tmp/jagoombacolor/build/scaling.o
  .debug_aranges
-                0x000001b8       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+                0x000001b8       0x20 /tmp/jagoombacolor/build/stub.o
  .debug_aranges
-                0x000001d8       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+                0x000001d8       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
  .debug_aranges
-                0x000001f8       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+                0x000001f8       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
  .debug_aranges
-                0x00000218       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+                0x00000218       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
  .debug_aranges
-                0x00000238       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+                0x00000238       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
  .debug_aranges
-                0x00000258       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+                0x00000258       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
  .debug_aranges
-                0x00000278       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+                0x00000278       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
  .debug_aranges
-                0x00000298       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+                0x00000298       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
  .debug_aranges
-                0x000002b8       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+                0x000002b8       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
  .debug_aranges
-                0x000002d8       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+                0x000002d8       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
  .debug_aranges
-                0x000002f8       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+                0x000002f8       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
  .debug_aranges
-                0x00000318       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+                0x00000318       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
  .debug_aranges
-                0x00000338       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+                0x00000338       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
  .debug_aranges
-                0x00000358       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+                0x00000358       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .debug_aranges
+                0x00000378       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x9998
+.debug_info     0x00000000     0xa4dc
  *(.debug_info)
  .debug_info    0x00000000      0x199 /tmp/jagoombacolor/build/cache.o
  .debug_info    0x00000199      0xd33 /tmp/jagoombacolor/build/dma.o
@@ -1091,24 +1112,25 @@ Linker script and memory map
  .debug_info    0x00003eed      0xd21 /tmp/jagoombacolor/build/savestate.o
  .debug_info    0x00004c0e      0x6f6 /tmp/jagoombacolor/build/speedhack.o
  .debug_info    0x00005304     0x26d1 /tmp/jagoombacolor/build/sram.o
- .debug_info    0x000079d5     0x154b /tmp/jagoombacolor/build/ui.o
- .debug_info    0x00008f20       0x52 /tmp/jagoombacolor/build/stub.o
- .debug_info    0x00008f72       0xeb /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
- .debug_info    0x0000905d      0x130 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
- .debug_info    0x0000918d       0xc3 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
- .debug_info    0x00009250      0x10b /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
- .debug_info    0x0000935b      0x135 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
- .debug_info    0x00009490      0x148 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
- .debug_info    0x000095d8      0x14a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
- .debug_info    0x00009722      0x12b /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
- .debug_info    0x0000984d       0x31 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
- .debug_info    0x0000987e       0x31 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
- .debug_info    0x000098af       0x31 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
- .debug_info    0x000098e0       0x3e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
- .debug_info    0x0000991e       0x3e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
- .debug_info    0x0000995c       0x3c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x000079d5     0x15a0 /tmp/jagoombacolor/build/ui.o
+ .debug_info    0x00008f75      0xaef /tmp/jagoombacolor/build/scaling.o
+ .debug_info    0x00009a64       0x52 /tmp/jagoombacolor/build/stub.o
+ .debug_info    0x00009ab6       0xeb /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+ .debug_info    0x00009ba1      0x130 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+ .debug_info    0x00009cd1       0xc3 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+ .debug_info    0x00009d94      0x10b /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+ .debug_info    0x00009e9f      0x135 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+ .debug_info    0x00009fd4      0x148 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+ .debug_info    0x0000a11c      0x14a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+ .debug_info    0x0000a266      0x12b /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+ .debug_info    0x0000a391       0x31 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+ .debug_info    0x0000a3c2       0x31 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .debug_info    0x0000a3f3       0x31 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+ .debug_info    0x0000a424       0x3e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+ .debug_info    0x0000a462       0x3e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .debug_info    0x0000a4a0       0x3c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
 
-.debug_abbrev   0x00000000     0x2960
+.debug_abbrev   0x00000000     0x2cca
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x15d /tmp/jagoombacolor/build/cache.o
  .debug_abbrev  0x0000015d      0x404 /tmp/jagoombacolor/build/dma.o
@@ -1121,24 +1143,25 @@ Linker script and memory map
  .debug_abbrev  0x0000133a      0x3d0 /tmp/jagoombacolor/build/savestate.o
  .debug_abbrev  0x0000170a      0x2ac /tmp/jagoombacolor/build/speedhack.o
  .debug_abbrev  0x000019b6      0x456 /tmp/jagoombacolor/build/sram.o
- .debug_abbrev  0x00001e0c      0x4b1 /tmp/jagoombacolor/build/ui.o
- .debug_abbrev  0x000022bd       0x4b /tmp/jagoombacolor/build/stub.o
- .debug_abbrev  0x00002308       0x90 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
- .debug_abbrev  0x00002398       0xce /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
- .debug_abbrev  0x00002466       0x7b /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
- .debug_abbrev  0x000024e1       0xc9 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
- .debug_abbrev  0x000025aa       0xb7 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
- .debug_abbrev  0x00002661       0xc3 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
- .debug_abbrev  0x00002724       0xbe /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
- .debug_abbrev  0x000027e2       0x90 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
- .debug_abbrev  0x00002872       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
- .debug_abbrev  0x0000289a       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
- .debug_abbrev  0x000028c2       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
- .debug_abbrev  0x000028ea       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
- .debug_abbrev  0x00002912       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
- .debug_abbrev  0x0000293a       0x26 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x00001e0c      0x4ca /tmp/jagoombacolor/build/ui.o
+ .debug_abbrev  0x000022d6      0x351 /tmp/jagoombacolor/build/scaling.o
+ .debug_abbrev  0x00002627       0x4b /tmp/jagoombacolor/build/stub.o
+ .debug_abbrev  0x00002672       0x90 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+ .debug_abbrev  0x00002702       0xce /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+ .debug_abbrev  0x000027d0       0x7b /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+ .debug_abbrev  0x0000284b       0xc9 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+ .debug_abbrev  0x00002914       0xb7 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+ .debug_abbrev  0x000029cb       0xc3 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+ .debug_abbrev  0x00002a8e       0xbe /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+ .debug_abbrev  0x00002b4c       0x90 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+ .debug_abbrev  0x00002bdc       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+ .debug_abbrev  0x00002c04       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .debug_abbrev  0x00002c2c       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+ .debug_abbrev  0x00002c54       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x00002c7c       0x28 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .debug_abbrev  0x00002ca4       0x26 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
 
-.debug_line     0x00000000     0x67bd
+.debug_line     0x00000000     0x6dc0
  *(.debug_line)
  .debug_line    0x00000000      0x154 /tmp/jagoombacolor/build/cache.o
  .debug_line    0x00000154      0x82a /tmp/jagoombacolor/build/dma.o
@@ -1151,24 +1174,25 @@ Linker script and memory map
  .debug_line    0x00003285      0x3b8 /tmp/jagoombacolor/build/savestate.o
  .debug_line    0x0000363d      0x318 /tmp/jagoombacolor/build/speedhack.o
  .debug_line    0x00003955     0x173c /tmp/jagoombacolor/build/sram.o
- .debug_line    0x00005091      0x9f4 /tmp/jagoombacolor/build/ui.o
- .debug_line    0x00005a85       0x50 /tmp/jagoombacolor/build/stub.o
- .debug_line    0x00005ad5      0x194 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
- .debug_line    0x00005c69      0x102 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
- .debug_line    0x00005d6b       0xb4 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
- .debug_line    0x00005e1f      0x102 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
- .debug_line    0x00005f21      0x1bd /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
- .debug_line    0x000060de      0x1f0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
- .debug_line    0x000062ce      0x173 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
- .debug_line    0x00006441      0x161 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
- .debug_line    0x000065a2       0x52 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
- .debug_line    0x000065f4       0x52 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
- .debug_line    0x00006646       0x53 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
- .debug_line    0x00006699       0x67 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
- .debug_line    0x00006700       0x73 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
- .debug_line    0x00006773       0x4a /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x00005091      0xa25 /tmp/jagoombacolor/build/ui.o
+ .debug_line    0x00005ab6      0x5d2 /tmp/jagoombacolor/build/scaling.o
+ .debug_line    0x00006088       0x50 /tmp/jagoombacolor/build/stub.o
+ .debug_line    0x000060d8      0x194 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+ .debug_line    0x0000626c      0x102 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+ .debug_line    0x0000636e       0xb4 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+ .debug_line    0x00006422      0x102 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+ .debug_line    0x00006524      0x1bd /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+ .debug_line    0x000066e1      0x1f0 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+ .debug_line    0x000068d1      0x173 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+ .debug_line    0x00006a44      0x161 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+ .debug_line    0x00006ba5       0x52 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+ .debug_line    0x00006bf7       0x52 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .debug_line    0x00006c49       0x53 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+ .debug_line    0x00006c9c       0x67 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+ .debug_line    0x00006d03       0x73 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .debug_line    0x00006d76       0x4a /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
 
-.debug_frame    0x00000000     0x1204
+.debug_frame    0x00000000     0x12bc
  *(.debug_frame)
  .debug_frame   0x00000000       0x3c /tmp/jagoombacolor/build/cache.o
  .debug_frame   0x0000003c       0x90 /tmp/jagoombacolor/build/dma.o
@@ -1180,49 +1204,51 @@ Linker script and memory map
  .debug_frame   0x00000688      0x1d4 /tmp/jagoombacolor/build/savestate.o
  .debug_frame   0x0000085c       0x30 /tmp/jagoombacolor/build/speedhack.o
  .debug_frame   0x0000088c      0x40c /tmp/jagoombacolor/build/sram.o
- .debug_frame   0x00000c98      0x3b0 /tmp/jagoombacolor/build/ui.o
- .debug_frame   0x00001048       0x20 /tmp/jagoombacolor/build/stub.o
- .debug_frame   0x00001068       0x28 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
- .debug_frame   0x00001090       0x2c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
- .debug_frame   0x000010bc       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
- .debug_frame   0x000010dc       0x2c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
- .debug_frame   0x00001108       0x30 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
- .debug_frame   0x00001138       0x34 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
- .debug_frame   0x0000116c       0x2c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
- .debug_frame   0x00001198       0x2c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
- .debug_frame   0x000011c4       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
- .debug_frame   0x000011e4       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .debug_frame   0x00000c98      0x3c4 /tmp/jagoombacolor/build/ui.o
+ .debug_frame   0x0000105c       0xa4 /tmp/jagoombacolor/build/scaling.o
+ .debug_frame   0x00001100       0x20 /tmp/jagoombacolor/build/stub.o
+ .debug_frame   0x00001120       0x28 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+ .debug_frame   0x00001148       0x2c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+ .debug_frame   0x00001174       0x20 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+ .debug_frame   0x00001194       0x2c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+ .debug_frame   0x000011c0       0x30 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x000011f0       0x34 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+ .debug_frame   0x00001224       0x2c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+ .debug_frame   0x00001250       0x2c /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+ .debug_frame   0x0000127c       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000129c       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
 
-.debug_str      0x00000000     0x22e3
+.debug_str      0x00000000     0x2571
  *(.debug_str)
- .debug_str     0x00000000     0x22e3 /tmp/jagoombacolor/build/cache.o
+ .debug_str     0x00000000     0x2571 /tmp/jagoombacolor/build/cache.o
                                 0x1c1 (size before relaxing)
- .debug_str     0x000022e3      0x5f4 /tmp/jagoombacolor/build/dma.o
- .debug_str     0x000022e3      0x1d1 /tmp/jagoombacolor/build/gbcgamedetect.o
- .debug_str     0x000022e3      0x5b7 /tmp/jagoombacolor/build/main.o
- .debug_str     0x000022e3      0x15f /tmp/jagoombacolor/build/mbclient.o
- .debug_str     0x000022e3      0x597 /tmp/jagoombacolor/build/minilzo.o
- .debug_str     0x000022e3      0x450 /tmp/jagoombacolor/build/pocketnes_text.o
- .debug_str     0x000022e3      0x1c6 /tmp/jagoombacolor/build/rumble.o
- .debug_str     0x000022e3      0x3e1 /tmp/jagoombacolor/build/savestate.o
- .debug_str     0x000022e3      0x345 /tmp/jagoombacolor/build/speedhack.o
- .debug_str     0x000022e3      0xae1 /tmp/jagoombacolor/build/sram.o
- .debug_str     0x000022e3      0x678 /tmp/jagoombacolor/build/ui.o
- .debug_str     0x000022e3       0xeb /tmp/jagoombacolor/build/stub.o
- .debug_str     0x000022e3      0x1b4 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
- .debug_str     0x000022e3      0x1a2 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
- .debug_str     0x000022e3      0x195 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
- .debug_str     0x000022e3      0x1f8 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
- .debug_str     0x000022e3      0x1ab /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
- .debug_str     0x000022e3      0x1ca /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
- .debug_str     0x000022e3      0x1c1 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
- .debug_str     0x000022e3      0x197 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
- .debug_str     0x000022e3       0xb1 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
- .debug_str     0x000022e3       0xb1 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
- .debug_str     0x000022e3       0xb1 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
- .debug_str     0x000022e3       0xb6 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
- .debug_str     0x000022e3       0xb4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
- .debug_str     0x000022e3       0xb7 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+ .debug_str     0x00002571      0x5f4 /tmp/jagoombacolor/build/dma.o
+ .debug_str     0x00002571      0x1d1 /tmp/jagoombacolor/build/gbcgamedetect.o
+ .debug_str     0x00002571      0x5b7 /tmp/jagoombacolor/build/main.o
+ .debug_str     0x00002571      0x15f /tmp/jagoombacolor/build/mbclient.o
+ .debug_str     0x00002571      0x597 /tmp/jagoombacolor/build/minilzo.o
+ .debug_str     0x00002571      0x450 /tmp/jagoombacolor/build/pocketnes_text.o
+ .debug_str     0x00002571      0x1c6 /tmp/jagoombacolor/build/rumble.o
+ .debug_str     0x00002571      0x3e1 /tmp/jagoombacolor/build/savestate.o
+ .debug_str     0x00002571      0x345 /tmp/jagoombacolor/build/speedhack.o
+ .debug_str     0x00002571      0xae1 /tmp/jagoombacolor/build/sram.o
+ .debug_str     0x00002571      0x69a /tmp/jagoombacolor/build/ui.o
+ .debug_str     0x00002571      0x432 /tmp/jagoombacolor/build/scaling.o
+ .debug_str     0x00002571       0xeb /tmp/jagoombacolor/build/stub.o
+ .debug_str     0x00002571      0x1b4 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+ .debug_str     0x00002571      0x1a2 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+ .debug_str     0x00002571      0x195 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+ .debug_str     0x00002571      0x1f8 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+ .debug_str     0x00002571      0x1ab /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+ .debug_str     0x00002571      0x1ca /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+ .debug_str     0x00002571      0x1c1 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+ .debug_str     0x00002571      0x197 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+ .debug_str     0x00002571       0xb1 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+ .debug_str     0x00002571       0xb1 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+ .debug_str     0x00002571       0xb1 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+ .debug_str     0x00002571       0xb6 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+ .debug_str     0x00002571       0xb4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .debug_str     0x00002571       0xb7 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
 
 .debug_loc
  *(.debug_loc)
@@ -1279,39 +1305,43 @@ Linker script and memory map
  .ARM.attributes
                 0x000001bc       0x26 /tmp/jagoombacolor/build/ui.o
  .ARM.attributes
-                0x000001e2       0x1a /tmp/jagoombacolor/build/all.o
+                0x000001e2       0x26 /tmp/jagoombacolor/build/scaling.o
  .ARM.attributes
-                0x000001fc       0x1a /tmp/jagoombacolor/build/data.o
+                0x00000208       0x1a /tmp/jagoombacolor/build/scaling_asm.o
  .ARM.attributes
-                0x00000216       0x26 /tmp/jagoombacolor/build/stub.o
+                0x00000222       0x1a /tmp/jagoombacolor/build/all.o
  .ARM.attributes
-                0x0000023c       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+                0x0000023c       0x1a /tmp/jagoombacolor/build/data.o
  .ARM.attributes
-                0x00000266       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+                0x00000256       0x26 /tmp/jagoombacolor/build/stub.o
  .ARM.attributes
-                0x00000290       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+                0x0000027c       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
  .ARM.attributes
-                0x000002ba       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+                0x000002a6       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
  .ARM.attributes
-                0x000002e4       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+                0x000002d0       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
  .ARM.attributes
-                0x0000030e       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+                0x000002fa       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
  .ARM.attributes
-                0x00000338       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+                0x00000324       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
  .ARM.attributes
-                0x00000362       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+                0x0000034e       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
  .ARM.attributes
-                0x0000038c       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
+                0x00000378       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
  .ARM.attributes
-                0x000003a8       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
+                0x000003a2       0x2a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
  .ARM.attributes
-                0x000003c4       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
+                0x000003cc       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_sqi.o)
  .ARM.attributes
-                0x000003e0       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+                0x000003e8       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_uqi.o)
  .ARM.attributes
-                0x000003fc       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+                0x00000404       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_thumb1_case_shi.o)
  .ARM.attributes
-                0x00000418       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
+                0x00000420       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000043c       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x00000458       0x1c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/nofp/libgcc.a(_dvmd_tls.o)
 
 /DISCARD/
  *(.note.GNU-stack)
@@ -1328,6 +1358,8 @@ LOAD /tmp/jagoombacolor/build/savestate.o
 LOAD /tmp/jagoombacolor/build/speedhack.o
 LOAD /tmp/jagoombacolor/build/sram.o
 LOAD /tmp/jagoombacolor/build/ui.o
+LOAD /tmp/jagoombacolor/build/scaling.o
+LOAD /tmp/jagoombacolor/build/scaling_asm.o
 LOAD /tmp/jagoombacolor/build/all.o
 LOAD /tmp/jagoombacolor/build/data.o
 LOAD /tmp/jagoombacolor/build/stub.o
@@ -1345,7 +1377,7 @@ OUTPUT(/tmp/jagoombacolor/jagoombacolor.elf elf32-littlearm)
 LOAD linker stubs
 
 .debug_loclists
-                0x00000000     0x6ba1
+                0x00000000     0x72bb
  .debug_loclists
                 0x00000000       0x61 /tmp/jagoombacolor/build/cache.o
  .debug_loclists
@@ -1365,28 +1397,30 @@ LOAD linker stubs
  .debug_loclists
                 0x00004287      0x754 /tmp/jagoombacolor/build/speedhack.o
  .debug_loclists
-                0x000049db     0x12d9 /tmp/jagoombacolor/build/sram.o
+                0x000049db     0x12c3 /tmp/jagoombacolor/build/sram.o
  .debug_loclists
-                0x00005cb4      0x5e9 /tmp/jagoombacolor/build/ui.o
+                0x00005c9e      0x5f1 /tmp/jagoombacolor/build/ui.o
  .debug_loclists
-                0x0000629d       0x57 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
+                0x0000628f      0x728 /tmp/jagoombacolor/build/scaling.o
  .debug_loclists
-                0x000062f4       0x58 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
+                0x000069b7       0x57 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strlen-stub.o)
  .debug_loclists
-                0x0000634c       0x29 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+                0x00006a0e       0x58 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcat.o)
  .debug_loclists
-                0x00006375       0x5a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
+                0x00006a66       0x29 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
  .debug_loclists
-                0x000063cf      0x1c6 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
+                0x00006a8f       0x5a /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-init.o)
  .debug_loclists
-                0x00006595      0x3c5 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
+                0x00006ae9      0x1c6 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memset.o)
  .debug_loclists
-                0x0000695a      0x11f /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+                0x00006caf      0x3c5 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memmove.o)
  .debug_loclists
-                0x00006a79      0x128 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
+                0x00007074      0x11f /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strncpy.o)
+ .debug_loclists
+                0x00007193      0x128 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-memcmp.o)
 
 .debug_rnglists
-                0x00000000      0x3cd
+                0x00000000      0x456
  .debug_rnglists
                 0x00000000      0x11b /tmp/jagoombacolor/build/dma.o
  .debug_rnglists
@@ -1404,7 +1438,9 @@ LOAD linker stubs
  .debug_rnglists
                 0x00000341       0x79 /tmp/jagoombacolor/build/sram.o
  .debug_rnglists
-                0x000003ba       0x13 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
+                0x000003ba       0x89 /tmp/jagoombacolor/build/scaling.o
+ .debug_rnglists
+                0x00000443       0x13 /usr/lib/arm-none-eabi/newlib/thumb/nofp/libc_nano.a(libc_a-strcpy.o)
 
 .debug_line_str
                 0x00000000       0x8f

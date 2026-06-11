@@ -201,6 +201,22 @@ extern u8 gammavalue;	//from lcd.s
 
 extern u8 g_lcdhack;
 extern u8 _dmamode;
+
+// lcd.s register variables for GBC LCD state
+extern u8 scrollX;
+extern u8 scrollY;
+extern u8 windowX;
+extern u8 windowY;
+extern u8 lcdstate;  // first byte = lcdctrl (FF40)
+extern u8 doublespeed;
+extern u8 scanline;  // g_scanline / _scanline
+extern u8 lcdyc;
+
+// scaling
+extern u8 g_scale_mode;
+extern u8 g_scaling_active;
+void scaling_init(void);
+void scaling_render_frame(void);
 extern u16 _dma_src;
 extern u16 _dma_dest;
 extern u8 _vrambank;

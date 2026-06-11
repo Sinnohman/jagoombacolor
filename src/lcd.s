@@ -1634,6 +1634,14 @@ canary_value_doesnt_match:
 
 	bl_long showfps_
 
+	@ If scaling is active (g_scale_mode != 0), render the scaled frame
+	ldr r0,=g_scale_mode
+	ldrb r0,[r0]
+	tst r0,r0
+	beq 2f
+	bl_long scaling_render_frame
+2:
+
 	ldmfd sp!,{r4-addy,pc}
 
 @@@@@@@
@@ -4936,8 +4944,12 @@ _lcdstat_save:
 	.byte 0 @lcdstat_save
 _scrollX:
 	.byte 0 @scrollX
+	.global scrollX
+scrollX = _scrollX
 _scrollY:
 	.byte 0 @scrollY
+	.global scrollY
+scrollY = _scrollY
 	
 _scanline:
 g_scanline:	.byte 0 @scanline
@@ -4952,8 +4964,10 @@ _ob1palette:
 	.byte 0 @ob1palette
 _windowX:
 	.byte 0 @windowX
+windowX = _windowX
 _windowY:
 	.byte 0 @windowY
+windowY = _windowY
 _BCPS_index:	
 	.byte 0 @BCPS_index  ;actually ff68
 _doublespeed:

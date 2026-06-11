@@ -34,6 +34,9 @@ arm-none-eabi-gcc -x assembler-with-cpp $ASFLAGS -I$SRCDIR -c "$SRCDIR/gba_crt0_
 # Assemble data files
 arm-none-eabi-gcc -x assembler-with-cpp $ASFLAGS -I$SRCDIR -c "$SRCDIR/data.s" -o "$BUILDDIR/data.o" 2>&1
 
+# Assemble scaling routines
+arm-none-eabi-gcc -x assembler-with-cpp $ASFLAGS -I$SRCDIR -c "$SRCDIR/scaling.s" -o "$BUILDDIR/scaling_asm.o" 2>&1
+
 # Compile stub
 arm-none-eabi-gcc $CFLAGS $INCLUDES -c "$SRCDIR/stub.c" -o "$BUILDDIR/stub.o" 2>&1
 
@@ -53,6 +56,8 @@ OFILES="-Wl,$BUILDDIR/gba_crt0_my.o \
         -Wl,$BUILDDIR/main.o -Wl,$BUILDDIR/mbclient.o -Wl,$BUILDDIR/minilzo.o \
         -Wl,$BUILDDIR/pocketnes_text.o -Wl,$BUILDDIR/rumble.o -Wl,$BUILDDIR/savestate.o \
         -Wl,$BUILDDIR/speedhack.o -Wl,$BUILDDIR/sram.o -Wl,$BUILDDIR/ui.o \
+        -Wl,$BUILDDIR/scaling.o \
+        -Wl,$BUILDDIR/scaling_asm.o \
         -Wl,$BUILDDIR/all.o \
         -Wl,$BUILDDIR/data.o \
         -Wl,$BUILDDIR/stub.o \

@@ -22,6 +22,14 @@ The `font._lz77` file in the source tree was a different (wrong) version from wh
 ### Fixed IWRAM Overflow
 The font and palette data was placed in `.data` (loaded into IWRAM) alongside the emulator core. Combined they exceeded the GBA's 32K IWRAM limit by ~80 bytes, causing linker errors. Moved font data to `.rodata` so it stays in ROM.
 
+### Experimental Scaling Modes (NEW)
+Added three display scaling modes selectable from Display Settings:
+- **Off** (default): 1x native, centered on GBA screen (existing behavior)
+- **1.5x Wide**: Nearest-neighbor horizontal 1.5x scale to 240×144, fills screen width
+- **Full**: 1.5x horizontal + vertical scale to 240×160, fills entire screen
+
+**Note:** These use a software pixel renderer and may impact performance on real hardware. Some games may experience reduced frame rate.
+
 ### Updated Build System
 - `build-jagoomba2.sh` — complete build pipeline using system devkitARM toolchain (Linux)
 - `install-devkitpro` — install devkitARM toolchain from GitHub mirror (bypasses Cloudflare)
