@@ -1634,14 +1634,6 @@ canary_value_doesnt_match:
 
 	bl_long showfps_
 
-	@ If scaling is active (g_scale_mode != 0), render the scaled frame
-	ldr r0,=g_scale_mode
-	ldrb r0,[r0]
-	tst r0,r0
-	beq 2f
-	bl_long scaling_render_frame
-2:
-
 	ldmfd sp!,{r4-addy,pc}
 
 @@@@@@@
@@ -2369,7 +2361,17 @@ display_frame:	@called at vblank
 
 	bl display_bg
 	
+	@ If scaling is active, render the scaled frame
+	ldr r12,=g_scale_mode
+	ldrb r12,[r12]
+	tst r12,r12
+	beq 2f
+	bl_long scaling_render_frame
+2:
+
 	ldmfd sp!,{globalptr,pc}
+	
+	.ltorg
 
 display_bg:
 	ldrb_ r0,bg_cache_updateok
