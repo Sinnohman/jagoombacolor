@@ -1,4 +1,4 @@
-# Jagoomba Color - Sinnohman's Fork
+# Jagoomba Color - Sinnohman's Fork (in production)
 
 A fork of [Jaga's Goomba Color fork](https://github.com/EvilJagaGenius/jagoombacolor), which itself is a fork of Goomba Color with bug fixes and compatibility improvements. Based on the 2019-05-04 source.
 
